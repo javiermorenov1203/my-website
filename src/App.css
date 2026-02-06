@@ -21,6 +21,11 @@ p {
   font-size: 18px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit
+}
+
 /* FIX: hacer que ::before funcione */
 .section {
   position: relative;
@@ -70,18 +75,15 @@ img {
   grid-template-columns: 2fr 1fr;
 }
 
-#profile-pic-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#banner p {
+  font-size: 24px;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 #about-me h2 {
@@ -101,6 +103,13 @@ img {
 
 #websites img:hover {
   opacity: 0.5;
+}
+
+#profile-pic-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #profile-pic {
@@ -129,7 +138,6 @@ img {
 }
 
 .project-card img {
-  width: 100%;
   aspect-ratio: 4 / 3;
 }
 
@@ -151,13 +159,33 @@ img {
 
 .stack {
   border: 1px solid rgb(255, 255, 255);
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 2px 8px;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-section img {
+  border-radius: 20px;
+}
+
+.grid-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-section h3 {
+  margin-bottom: 10px;
 }
 
 .experience-section {
   display: grid;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .experience-wrapper {
@@ -165,9 +193,28 @@ img {
 }
 
 .experience-wrapper img {
-  width: 100%;
   border-radius: 20px;
   aspect-ratio: 21 / 10;
+}
+
+.experience-wrapper h3 {
+  margin: 10px 0;
+}
+
+footer {
+  height: 50vh;
+}
+
+footer img {
+  width: 25px;
+  object-fit: contain;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -202,13 +249,34 @@ img {
     gap: 30px;
   }
 
+  .grid-section {
+    display: block;
+  }
+
+  .grid-section h3 {
+    margin-top: 9px;
+  }
+
+  .mobile-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
   .experience-wrapper {
     padding: 0;
   }
+
 }
 
 @media screen and (min-width: 769px) {
   #banner {
-    height: 40vh;
+    height: 30%;
+    padding-top: 0;
+    padding-bottom: 6%;
+  }
+
+  #profile-pic {
+    transform: translateY(35%);
   }
 }

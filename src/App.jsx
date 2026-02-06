@@ -1,28 +1,38 @@
-import image from './assets/me.jpeg'
-import onlineMarket from './assets/online-market.png'
-import credifama from './assets/credifama.png'
-import minigames from './assets/minigames.png'
-import gxc from './assets/gxc.jpg'
-import tcs from './assets/tcs.jpg'
-import univeristy from './assets/university.png'
+import profilePic from './assets/me.jpeg'
+import univeristyImage from './assets/university.png'
 import linkinIcon from './assets/linkedin-icon.webp'
 import githubIcon from './assets/github-icon.webp'
+import gmailIcon from './assets/gmail-icon.png'
+import phoneIcon from './assets/phone-icon.png'
 import './App.css'
 
 
 function ProjectCard({ project }) {
   return (
-    <div className='project-card'>
-      <img src={project.image} alt="test" />
-      <div className='info-wrapper'>
-
-        <h3>{project.name}</h3>
-        <p>{project.description}</p>
-        <div className='stack-wrapper'>
-          {project.stack.map(s => (
-            <div className='stack'>{s}</div>
-          ))}
+    <a href={project.url}>
+      <div className='project-card'>
+        <img src={project.image} alt={project.name} />
+        <div className='info-wrapper'>
+          <h3>{project.name}</h3>
+          <p>{project.description}</p>
+          <div className='stack-wrapper'>
+            {project.stack.map(s => (
+              <div className='stack'>{s}</div>
+            ))}
+          </div>
         </div>
+      </div>
+    </a>
+  )
+}
+
+function ExperienceLayout({ experienceInfo }) {
+  return (
+    <div className='experience-wrapper'>
+      <img src={experienceInfo.image} alt={experienceInfo.name} />
+      <div className='experience-info'>
+        <h3>{experienceInfo.name}</h3>
+        <p>{experienceInfo.description}</p>
       </div>
     </div>
   )
@@ -33,21 +43,37 @@ function App() {
   const projects = [
     {
       name: 'Online Market',
-      image: onlineMarket,
+      image: 'src/assets/online-market.png',
+      url: 'https://github.com/javiermorenov1203/online-market',
       description: 'Full-stack application that integrates backend and frontend with user authentication, product catalog and database persistance.',
       stack: ['C#', 'React', 'SQL Server']
     },
     {
       name: 'Credifama',
-      image: credifama,
+      image: 'src/assets/credifama.png',
+      url: 'https://github.com/javiermorenov1203/credifama',
       description: 'Form with input validation that allows to enter user information and view a list of the users entered.',
       stack: ['PHP', 'HTML', 'CSS', 'JavasScript', 'MySQL']
     },
     {
       name: 'Minigames',
-      image: minigames,
+      image: 'src/assets/minigames.png',
+      url: 'https://github.com/javiermorenov1203/MiniGames',
       description: 'Web application featuring multiple small interactive games using routing, reusable components, and state management.',
       stack: ['React']
+    }
+  ]
+
+  const workExperience = [
+    {
+      name: 'Genexus Consulting',
+      image: 'src/assets/gxc.jpg',
+      description: 'I work at GXC as a manual tester for web and mobile applications. I gained expertise in software quality standards and contributed to projects for insurance companies and financial entities.'
+    },
+    {
+      name: 'Tata Consultancy Services',
+      image: 'src/assets/tcs.jpg',
+      description: 'I provided customer support to Microsoft Dynamics end users. I communicated in English with international clients and analyzed issues to provide efficient solutions.'
     }
   ]
 
@@ -56,14 +82,18 @@ function App() {
       <div id='banner' className='section section-odd'>
         <div className='info-container'>
           <h1>Javier Moreno</h1>
-          <p style={{ fontSize: 24 }}>Software Developer</p>
+          <p>Software Developer</p>
           <div id='websites'>
-            <img src={linkinIcon} alt="linkedin" />
-            <img src={githubIcon} alt="github" />
+            <a href="https://www.linkedin.com/in/javier-moreno-902aa9223/?locale=en-US">
+              <img src={linkinIcon} alt="linkedin" />
+            </a>
+            <a href="https://github.com/javiermorenov1203">
+              <img src={githubIcon} alt="github" />
+            </a>
           </div>
         </div>
         <div id='profile-pic-container'>
-          <img id='profile-pic' src={image} alt="me" />
+          <img id='profile-pic' src={profilePic} alt="me" />
         </div>
       </div>
 
@@ -83,11 +113,11 @@ function App() {
 
       <div className='section'>
         <h2>Contributions to Open-source</h2>
-        <div className='experience-wrapper'>
-          <img src={univeristy} alt="UCU" />
-          <div className='experience-info'>
+        <div className='grid-section'>
+          <img src='src/assets/threat-dragon.png' alt='owasp' />
+          <div className='grid-info'>
             <h3>OWASP Threat Dragon</h3>
-            <p>I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications.</p>
+            <p>I contributed to Owasp Threat Dragon as a part of a team from my university. In this project, we added a new type of diagram for modeling threats specific to Elevation of Privilege. We also made it extendable so that new categories can be added.</p>
           </div>
         </div>
       </div>
@@ -95,33 +125,34 @@ function App() {
       <div className='section section-odd'>
         <h2>Work Experience</h2>
         <div className='experience-section'>
-          <div className='experience-wrapper'>
-            <img src={gxc} alt="GXC" />
-            <div className='experience-info'>
-              <h3>Genexus Consulting</h3>
-              <p>I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications.</p>
-            </div>
-          </div>
-          <div className='experience-wrapper'>
-            <img src={tcs} alt="TCS" />
-            <div className='experience-info'>
-              <h3>Tata Consultancy Services</h3>
-              <p>I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications.</p>
-            </div>
-          </div>
+          {workExperience.map(e => (
+            <ExperienceLayout experienceInfo={e} />
+          ))}
         </div>
       </div>
 
       <div className='section'>
         <h2>Education</h2>
-        <div className='experience-wrapper'>
-          <img src={univeristy} alt="UCU" />
-          <div className='experience-info'>
+        <div className='grid-section mobile-grid'>
+          <div className='grid-info'>
             <h3>Catholic University of Uruguay</h3>
-            <p>I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications. I work at GXC as a manual tester for web and mobile applications.</p>
+            <p>I am currently in the last year of my software engineering carrer where I have had the opportunity to develop both technical and soft skills.</p>
           </div>
+          <img src={univeristyImage} alt="UCU" />
         </div>
       </div>
+
+      <footer className='section section-odd'>
+        <h2>Contact Information</h2>
+        <div className='contact'>
+          <img src={gmailIcon} alt="email" />
+          <p>javiermorenov1203@gmail.com</p>
+        </div>
+        <div className='contact'>
+          <img src={phoneIcon} alt="phone" />
+          <p>(+598) 096 715 450</p>
+        </div>
+      </footer>
     </>
   )
 }
