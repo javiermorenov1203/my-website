@@ -1,4 +1,10 @@
 import profilePic from './assets/me.jpeg'
+import marketImg from './assets/online-market.png'
+import credifamaImg from './assets/credifama.png'
+import minigamesImg from './assets/minigames.png'
+import gxcImg from './assets/gxc.jpg'
+import tcsImg from './assets/tcs.jpg'
+import threatDragonImg from './assets/threat-dragon.png'
 import univeristyImage from './assets/university.png'
 import linkinIcon from './assets/linkedin-icon.webp'
 import githubIcon from './assets/github-icon.webp'
@@ -43,21 +49,21 @@ function App() {
   const projects = [
     {
       name: 'Online Market',
-      image: 'src/assets/online-market.png',
+      image: marketImg,
       url: 'https://github.com/javiermorenov1203/online-market',
       description: 'Full-stack application that integrates backend and frontend with user authentication, product catalog and database persistance.',
       stack: ['C#', 'React', 'SQL Server']
     },
     {
       name: 'Credifama',
-      image: 'src/assets/credifama.png',
+      image: credifamaImg,
       url: 'https://github.com/javiermorenov1203/credifama',
       description: 'Form with input validation that allows to enter user information and view a list of the users entered.',
       stack: ['PHP', 'HTML', 'CSS', 'JavasScript', 'MySQL']
     },
     {
       name: 'Minigames',
-      image: 'src/assets/minigames.png',
+      image: minigamesImg,
       url: 'https://github.com/javiermorenov1203/MiniGames',
       description: 'Web application featuring multiple small interactive games using routing, reusable components, and state management.',
       stack: ['React']
@@ -67,12 +73,12 @@ function App() {
   const workExperience = [
     {
       name: 'Genexus Consulting',
-      image: 'src/assets/gxc.jpg',
+      image: gxcImg,
       description: 'I work at GXC as a manual tester for web and mobile applications. I gained expertise in software quality standards and contributed to projects for insurance companies and financial entities.'
     },
     {
       name: 'Tata Consultancy Services',
-      image: 'src/assets/tcs.jpg',
+      image: tcsImg,
       description: 'I provided customer support to Microsoft Dynamics end users. I communicated in English with international clients and analyzed issues to provide efficient solutions.'
     }
   ]
@@ -114,7 +120,7 @@ function App() {
       <div className='section'>
         <h2>Contributions to Open-source</h2>
         <div className='grid-section'>
-          <img src='src/assets/threat-dragon.png' alt='owasp' />
+          <img src={threatDragonImg} alt='owasp' />
           <div className='grid-info'>
             <h3>OWASP Threat Dragon</h3>
             <p>I contributed to Owasp Threat Dragon as a part of a team from my university. In this project, we added a new type of diagram for modeling threats specific to Elevation of Privilege. We also made it extendable so that new categories can be added.</p>
