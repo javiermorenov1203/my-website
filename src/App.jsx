@@ -17,7 +17,7 @@ function ProjectCard({ project }) {
   return (
     <a href={project.url}>
       <div className='project-card'>
-        <img src={project.image} alt={project.name} />
+        <img src={project.image} alt={project.name} loading="lazy"/>
         <div className='info-wrapper'>
           <h3>{project.name}</h3>
           <p>{project.description}</p>
@@ -35,7 +35,7 @@ function ProjectCard({ project }) {
 function ExperienceLayout({ experienceInfo }) {
   return (
     <div className='experience-wrapper'>
-      <img src={experienceInfo.image} alt={experienceInfo.name} />
+      <img src={experienceInfo.image} alt={experienceInfo.name} loading="lazy"/>
       <div className='experience-info'>
         <h3>{experienceInfo.name}</h3>
         <p>{experienceInfo.description}</p>
@@ -91,15 +91,15 @@ function App() {
           <p>Software Developer</p>
           <div id='websites'>
             <a href="https://www.linkedin.com/in/javier-moreno-902aa9223/?locale=en-US">
-              <img src={linkinIcon} alt="linkedin" />
+              <img src={linkinIcon} alt="linkedin"/>
             </a>
             <a href="https://github.com/javiermorenov1203">
-              <img src={githubIcon} alt="github" />
+              <img src={githubIcon} alt="github"/>
             </a>
           </div>
         </div>
         <div id='profile-pic-container'>
-          <img id='profile-pic' src={profilePic} alt="me" />
+          <img id='profile-pic' src={profilePic} alt="me"/>
         </div>
       </div>
 
@@ -120,7 +120,7 @@ function App() {
       <div className='section'>
         <h2>Contributions to Open-source</h2>
         <div className='grid-section'>
-          <img src={threatDragonImg} alt='owasp' />
+          <img src={threatDragonImg} alt='owasp' loading="lazy"/>
           <div className='grid-info'>
             <h3>OWASP Threat Dragon</h3>
             <p>I contributed to Owasp Threat Dragon as a part of a team from my university. In this project, we added a new type of diagram for modeling threats specific to Elevation of Privilege. We also made it extendable so that new categories can be added.</p>
@@ -144,18 +144,18 @@ function App() {
             <h3>Catholic University of Uruguay</h3>
             <p>I am currently in the last year of my software engineering carrer where I have had the opportunity to develop both technical and soft skills.</p>
           </div>
-          <img src={univeristyImage} alt="UCU" />
+          <img src={univeristyImage} alt="UCU" loading="lazy"/>
         </div>
       </div>
 
       <footer className='section section-odd'>
         <h2>Contact Information</h2>
         <div className='contact'>
-          <img src={gmailIcon} alt="email" />
+          <img src={gmailIcon} alt="email" loading="lazy"/>
           <p>javiermorenov1203@gmail.com</p>
         </div>
         <div className='contact'>
-          <img src={phoneIcon} alt="phone" />
+          <img src={phoneIcon} alt="phone" loading="lazy"/>
           <p>(+598) 096 715 450</p>
         </div>
       </footer>
